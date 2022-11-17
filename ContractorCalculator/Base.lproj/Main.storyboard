@@ -47,6 +47,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
+                                <connections>
+                                    <action selector="btnCalculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MSD-3C-hdG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SubTotal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RX-Uy-Nfk">
                                 <rect key="frame" x="75" y="268" width="70" height="21"/>
@@ -94,6 +97,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="lblSubTotal" destination="PtS-R6-0zb" id="cc0-j9-c8D"/>
+                        <outlet property="lblTax" destination="6QL-QK-1HV" id="aQd-of-ekr"/>
+                        <outlet property="lblTotal" destination="LUM-Ym-42V" id="lvi-k4-JZd"/>
+                        <outlet property="txtLabor" destination="Z1i-A2-43C" id="Spl-qf-l0h"/>
+                        <outlet property="txtMaterials" destination="1SP-um-zN8" id="jIi-rW-9Ys"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
