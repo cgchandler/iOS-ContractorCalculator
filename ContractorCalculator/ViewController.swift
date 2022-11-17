@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ContractorCalculator
 //
-//  Created by Abby Chandler on 11/16/22.
+//  Created by Chris Chandler on 11/16/22.
 //
 
 import UIKit
