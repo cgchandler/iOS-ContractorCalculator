@@ -49,28 +49,11 @@ class ViewController: UIViewController {
         lblTax.text = ""
         lblTotal.text = ""
         
-        txtLabor.keyboardType = .decimalPad
-        txtMaterials.keyboardType = .decimalPad
-        
     }
     
     @objc func dimissKeyboard() {
         view.endEditing(true)
     }
-
-//    func textFieldDidChangeSelection(_ textField: UITextField) {
-//
-//          if let typedText = textField.text {       // What have we typed in ?
-//               var dotCount = 0
-//               for c in typedText {  // count dot or comma
-//                   if String(c) == "." || String(c) == "," {  dotCount += 1  }
-//              }
-//               if dotCount >= 2 {    // remove last typed
-//                    textField.text = String(typedText.dropLast())
-//              }
-//          }
-//
-//     }
     
 }
 
