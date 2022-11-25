@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ContractorCalculator
 //
-//  Created by Abby Chandler on 11/16/22.
+//  Created by Chris Chandler on 11/16/22.
 //
 
 import UIKit
@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // set the default taxrate to 5.0 if the setting doesn't exist
+        let settings = UserDefaults.standard
+        if settings.string(forKey: Constants.taxRate) == nil {
+            settings.set("5.0", forKey: Constants.taxRate)
+
+        }
+        settings.synchronize()
+        
         return true
     }
 
@@ -33,4 +42,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

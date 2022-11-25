@@ -7,22 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TaxRateControllerDelegate {
 
-    let taxRate = 0.05  // Tax Rate Constant
-    
     @IBOutlet weak var txtLabor: UITextField!
     @IBOutlet weak var txtMaterials: UITextField!
     @IBOutlet weak var lblSubTotal: UILabel!
     @IBOutlet weak var lblTax: UILabel!
     @IBOutlet weak var lblTotal: UILabel!
+    @IBOutlet weak var lblTaxRate: UILabel!
     
     @IBAction func btnCalculate(_ sender: Any) {
         
         // Get the user entered values (nil-coalescing operator ?? returns 0.0 when conversion to double fails)
         let labor = Double(txtLabor.text!) ?? 0.0
         let materials = Double(txtMaterials.text!) ?? 0.0
-        
+        let taxRate = (Double(lblTaxRate.text!) ?? 0.0) / 100
+
         // Perform calculations
         let subTotal = labor + materials
         let tax = subTotal * taxRate
@@ -51,9 +51,41 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Get and display the tax rate from the user defaults
+        let settings = UserDefaults.standard
+        lblTaxRate.text = settings.string(forKey: Constants.taxRate)
+    }
+    
+    func getCurrentTaxRate() -> String {
+        return lblTaxRate.text ?? "0.0"
+    }
+    
+    func taxRateChanged(taxRate: String) {
+        
+        // Update the taxrate if a numeric value is passed in
+        if (taxRate.isNumeric) {
+            
+            // set the UserDefaults taxrate setting to the new value
+            let settings = UserDefaults.standard
+            settings.set(taxRate, forKey: Constants.taxRate)
+            settings.synchronize()
+            
+            // Display the new tax rate
+            lblTaxRate.text = taxRate
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segueTaxRate") {
+            let taxRateController = segue.destination as! TaxRateViewController
+            taxRateController.delegate = self
+        }
+    }
+    
     @objc func dimissKeyboard() {
         view.endEditing(true)
     }
     
 }
-
