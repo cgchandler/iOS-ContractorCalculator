@@ -32,8 +32,6 @@ class TaxRateViewController: UIViewController {
         self.title = "Enter Tax Rate"
         
         // Get and display the current tax rate using the delegate function getCurrentTaxRate
-        //let settings = UserDefaults.standard
-        //lblTaxRate.text = settings.string(forKey: Constants.taxRate)
         lblTaxRate.text = self.delegate?.getCurrentTaxRate()
         lblTaxRate.becomeFirstResponder()   // Set the focus to the taxrate
         

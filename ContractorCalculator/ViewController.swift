@@ -57,10 +57,12 @@ class ViewController: UIViewController, TaxRateControllerDelegate {
         lblTaxRate.text = settings.string(forKey: Constants.taxRate)
     }
     
+    // implementation of delegate method to get the current taxrate
     func getCurrentTaxRate() -> String {
         return lblTaxRate.text ?? "0.0"
     }
     
+    // implementation of delegate method to return the new taxrate
     func taxRateChanged(taxRate: String) {
         
         // Update the taxrate if a numeric value is passed in
